@@ -1,0 +1,60 @@
+<testsuites name="Jasmine Tests">
+<%
+suites.forEach(function(suite)
+{
+-%>
+	<testsuite name="<%= suite.name %>"
+		tests="<%= suite.specs.length %>"
+		failures="<%= suite.failureCount() %>"
+		skipped="<%= suite.skippedCount() %>"
+		timestamp="<%= suite.startTimestamp() %>"
+		time="<%= suite.duration() / 1000.0 %>">
+
+<%
+	suite.specs.forEach(function(spec)
+	{
+-%>
+		<testcase
+		 classname="<%= suite.name %>"
+		 name="<%= spec.name %>"
+		 time="<%= (spec.duration() / 1000.0) %>">
+<%
+		if (spec.isSkipped()) {
+			if (spec.pendingReason) { -%>
+			<skipped message="<%= escapeInvalidXmlChars(spec.pendingReason) %>" />
+<%
+			} else { -%>
+			<skipped/>
+<%
+			}
+		}
+		else if (spec.isFailed()) {
+			spec.failedExpectations.forEach(function(failure)
+			{ -%>
+			<failure type="<%= failure.matcherName || 'exception' %>" message="<%= escapeInvalidXmlChars(failure.message) %>">
+				<![CDATA[<%= escapeInvalidXmlChars(failure.stack || failure.message) %>]]>
+			</failure>
+<%
+			});
+		}
+		if (spec.stdout) { -%>
+			<system-out><![CDATA[
+<%= test.stdout.replace(/[^\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u10000-\u10FFFF]/g,''); %>
+]]></system-out>
+<%
+		}
+		if (spec.stderr) { -%>
+			<system-err><![CDATA[
+<%= test.stderr.replace(/[^\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u10000-\u10FFFF]/g,''); %>
+]]></system-err>
+<%
+		} -%>
+		</testcase>
+<%
+	});
+-%>
+	</testsuite>
+<%
+});
+-%>
+</testsuites>
