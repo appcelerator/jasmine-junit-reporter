@@ -106,10 +106,9 @@ function outputJUnitXML(suites) {
 
 class JasmineJUnitReporter {
 
-	constructor(options) {
+	constructor(options) { // eslint-disable-line no-unused-vars
 		this.suites = new Map();
 		this.currentSuite = null;
-		console.log(options);
 	}
 
 	jasmineStarted(options) { // eslint-disable-line no-unused-vars
