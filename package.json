@@ -20,7 +20,7 @@
     "ejs": "^2.6.1"
   },
   "devDependencies": {
-    "eslint": "^5.0.0",
+    "eslint": "^6.2.1",
     "eslint-config-axway": "^4.0.0",
     "grunt": "^1.0.3",
     "grunt-appc-js": "^2.1.0",
