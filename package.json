@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "eslint": "^5.0.0",
-    "eslint-config-axway": "^4.0.0",
+    "eslint-config-axway": "^4.4.0",
     "grunt": "^1.0.3",
     "grunt-appc-js": "^2.1.0",
     "grunt-cli": "^1.2.0"
