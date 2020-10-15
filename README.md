@@ -1,2 +1,3 @@
+# jasmine-junit-reporter
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/appcelerator/jasmine-junit-reporter.svg)](https://greenkeeper.io/)
+Write out JUnit XML test reports with your results!
