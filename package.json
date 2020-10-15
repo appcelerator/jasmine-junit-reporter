@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "eslint": "^7.10.0",
-    "eslint-config-axway": "^4.0.0"
+    "eslint-config-axway": "^4.0.0",
+    "husky": "^4.3.0"
   }
 }
