@@ -6,5 +6,5 @@
   },
   "rules": {
     "strict": ["error", "global"]
-  },
+  }
 }

@@ -4,7 +4,8 @@
   "description": "A Jasmine Reporter that outputs JUnit XML reports.",
   "main": "index.js",
   "scripts": {
-    "test": "grunt"
+    "lint": "eslint .",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
