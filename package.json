@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint"
+    "test": "nyc mocha test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "diff-js-xml": "^1.0.6",
     "eslint": "^7.10.0",
     "eslint-config-axway": "^5.0.0",
     "husky": "^4.3.0",
