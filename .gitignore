@@ -1,3 +1,5 @@
 node_modules/
 junit_report.xml
 retirejs.output.json
+test/myreport.xml
+.nyc_output/
