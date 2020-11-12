@@ -1,3 +1,6 @@
 .eslintrc
 Jenkinsfile
 retirejs.output.json
+test/
+junit_report.xml
+.nyc_output/
