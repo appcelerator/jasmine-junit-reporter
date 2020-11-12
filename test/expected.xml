@@ -1,0 +1,29 @@
+<testsuites name="Jasmine Tests">
+	<testsuite name="test.suite"
+		tests="3"
+		failures="1"
+		skipped="1"
+		timestamp="2020-11-12T20:23:39.361Z"
+		time="0">
+
+		<testcase
+		 classname="test.suite"
+		 name="test.suite.pending"
+		 time="0">
+			<skipped message="because of stuff" />
+		</testcase>
+		<testcase
+		 classname="test.suite"
+		 name="test.suite.passed"
+		 time="0">
+		</testcase>
+		<testcase
+		 classname="test.suite"
+		 name="test.suite.failed"
+		 time="0">
+			<failure type="exception" message="failed some assertion">
+				<![CDATA[line 1]]>
+			</failure>
+		</testcase>
+	</testsuite>
+</testsuites>
