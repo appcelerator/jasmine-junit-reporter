@@ -95,10 +95,10 @@ function escapeInvalidXmlChars(testResults) {
 		.replace(/[\u0000-\u0019]+/g, ''); // eslint-disable-line no-control-regex
 }
 
-function outputJUnitXML(suites) {
+function outputJUnitXML(suites, filename) {
 	try {
 		const r = ejs.render('' + fs.readFileSync(JUNIT_TEMPLATE),  { suites: suites, escapeInvalidXmlChars: escapeInvalidXmlChars });
-		fs.writeFileSync(path.join(process.cwd(), OUTPUT_FILENAME), r);
+		fs.writeFileSync(path.resolve(process.cwd(), filename), r);
 	} catch (e) {
 		console.error(e);
 	}
@@ -106,9 +106,14 @@ function outputJUnitXML(suites) {
 
 class JasmineJUnitReporter {
 
-	constructor(options) { // eslint-disable-line no-unused-vars
+	/**
+	 * @param {object} [options] options
+	 * @param {string} [options.filename='junit_report.xml'] output filename
+	 */
+	constructor(options = { filename: OUTPUT_FILENAME }) { // eslint-disable-line no-unused-vars
 		this.suites = new Map();
 		this.currentSuite = null;
+		this.filename = options.filename;
 	}
 
 	jasmineStarted(options) { // eslint-disable-line no-unused-vars
@@ -116,10 +121,10 @@ class JasmineJUnitReporter {
 	}
 
 	jasmineDone(result) { // eslint-disable-line no-unused-vars
-		outputJUnitXML([ ...this.suites.values() ]);
+		outputJUnitXML([ ...this.suites.values() ], this.filename);
 	}
 
-	specStarted (spec) {
+	specStarted(spec) {
 		this.currentSuite.addSpec(new Spec(spec));
 	}
 
